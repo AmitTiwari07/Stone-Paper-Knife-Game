@@ -3,7 +3,7 @@
 import random
 
 #DEFAULT;
-my_dict={'R':"Rock",'P':"Paper",'S':"Scissors"}
+my_dict={'S':"Stone",'P':"Paper",'K':"Knife"}
 user_count=0
 comp_count=0
 
@@ -19,24 +19,24 @@ while(comp_count+user_count<games):
 	user_input=user_input.upper()
 	#The [0] after the input() will assign the first charcter of input to the variable;
 	#Hence, the user can enter anything, anyway; 
-	#Example: The user can enter Rock or rock or r or R or ro or any such thing which represents Rock;
-	#It will always take input as a R
+	#Example: The user can enter Stone or stone or s or S or So or any such thing which represents Stone;
+	#It will always take input as a S
 	#Thereby, increasing the user input window;
 
 	for i in my_dict.keys():
-		if(user_input==i):		#If the entered input is confined to Rock, Paper or Scissors;
+		if(user_input==i):		#If the entered input is confined to Stone, Paper or Knife;
 			flag=1
 			break
 	if(flag!=1):				#If not, run the loop again;
 		print("INVALID INPUT")
 		continue
 
-	comp_input=random.choice(list(my_dict.keys()))	#Random Key from the dictionary my_dict i.e. R,P or S;
+	comp_input=random.choice(list(my_dict.keys()))	#Random Key from the dictionary my_dict i.e. S,P or K;
 
 	print("Computer's Input: ", my_dict[comp_input])
-	if ( user_input=='R' and comp_input=='P' ) or ( user_input=='P' and comp_input=='S' ) or ( user_input=='S' and comp_input=='R' ):
+	if ( user_input=='S' and comp_input=='P' ) or ( user_input=='P' and comp_input=='K' ) or ( user_input=='K' and comp_input=='S' ):
 		comp_count=comp_count+1
-	elif ( user_input=='P' and comp_input=='R' ) or ( user_input=='S' and comp_input=='P' ) or ( user_input=='R' and comp_input=='S' ):
+	elif ( user_input=='P' and comp_input=='S' ) or ( user_input=='K' and comp_input=='P' ) or ( user_input=='S' and comp_input=='K' ):
 		user_count=user_count+1
 	else:
 		print("TIE")
