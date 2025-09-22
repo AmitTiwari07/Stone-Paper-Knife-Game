@@ -1,4 +1,3 @@
-#START;
 
 import random
 
